@@ -2,7 +2,7 @@
 <idea-plugin>
     <id>com.github.akshayashokcode.buildtimetrackerplugin</id>
     <name>Build Time Tracker</name>
-    <vendor>AkshayAshokCode</vendor>
+    <vendor url="https://github.com/AkshayAshokCode">AkshayAshokCode</vendor>
 
     <depends>org.jetbrains.android</depends>
     <depends>com.intellij.modules.platform</depends>
@@ -10,7 +10,11 @@
     <resource-bundle>messages.MyBundle</resource-bundle>
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.akshayashokcode.buildtimetrackerplugin.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
+        <toolWindow
+                id="Build Time Tracker"
+                icon="/icons/plugin_icon.svg"
+                factoryClass="com.github.akshayashokcode.buildtimetrackerplugin.toolWindow.MyToolWindowFactory"/>
+
         <postStartupActivity implementation="com.github.akshayashokcode.buildtimetrackerplugin.startup.MyProjectActivity" />
         <applicationListeners>
             <listener
