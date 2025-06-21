@@ -1,5 +1,6 @@
 package com.github.akshayashokcode.buildtimetrackerplugin.toolWindow
 
+import com.github.akshayashokcode.buildtimetrackerplugin.BuildDataHolder
 import com.intellij.openapi.components.service
 import com.intellij.openapi.diagnostic.thisLogger
 import com.intellij.openapi.project.Project
@@ -15,14 +16,20 @@ import javax.swing.JButton
 
 class MyToolWindowFactory : ToolWindowFactory {
 
-    init {
-        thisLogger().warn("Don't forget to remove all non-needed sample code files with their corresponding registration entries in `plugin.xml`.")
-    }
 
     override fun createToolWindowContent(project: Project, toolWindow: ToolWindow) {
-        val myToolWindow = MyToolWindow(toolWindow)
-        val content = ContentFactory.getInstance().createContent(myToolWindow.getContent(), null, false)
+        val label = JBLabel("Last Build Duration: ${BuildDataHolder.lastBuildDurationMs} ms")
+
+        val panel = javax.swing.JPanel()
+        panel.add(label)
+
+        val content = ContentFactory.getInstance().createContent(panel, "", false)
         toolWindow.contentManager.addContent(content)
+
+        // Optionally add a timer to refresh the label every second
+        javax.swing.Timer(1000) {
+            label.text = "Last Build Duration: ${BuildDataHolder.lastBuildDurationMs} ms"
+        }.start()
     }
 
     override fun shouldBeAvailable(project: Project) = true
