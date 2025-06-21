@@ -17,18 +17,24 @@
 - [ ] Click the <kbd>Watch</kbd> button on the top of the [IntelliJ Platform Plugin Template][template] to be notified about releases containing new features and fixes.
 
 <!-- Plugin description -->
-This Fancy IntelliJ Platform Plugin is going to be your implementation of the brilliant ideas that you have.
+Track the build time of your Android Studio projects with ease!
 
-This specific section is a source for the [plugin.xml](/src/main/resources/META-INF/plugin.xml) file which will be extracted by the [Gradle](/build.gradle.kts) during the build process.
+This plugin logs the start and end times of project builds, helping you analyze and optimize build performance. It integrates directly into Android Studio and uses IntelliJ's `BuildManagerListener` to capture build events.
 
-To keep everything working, do not remove `<!-- ... -->` sections. 
+Features:
+- Logs build start and finish times
+- Works automatically when builds run
+- Outputs to Android Studio logs
+
+Ideal for performance tracking, debugging slow builds, or just staying informed on your build process.
 <!-- Plugin description end -->
+
 
 ## Installation
 
 - Using the IDE built-in plugin system:
   
-  <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>Marketplace</kbd> > <kbd>Search for "Build-Time-Tracker-Plugin"</kbd> >
+  <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>Marketplace</kbd> > <kbd>Search for "Build Time Tracker"</kbd> >
   <kbd>Install</kbd>
   
 - Using JetBrains Marketplace:
